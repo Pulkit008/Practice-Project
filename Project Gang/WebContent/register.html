@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <style>
+        .msg{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Register</h3>
+    <form onsubmit="return registervalidate('name','msg1','username','msg2','password','msg3','cpassword','msg4')" action="" method="post">
+        
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" onfocusout="namevalidation('name', 'msg1')" />
+        <p id="msg1" class="msg"></p>
+
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" onfocusout="usernamevalidation('username', 'msg2')" />
+        <p id="msg2" class="msg"></p>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" onfocusout="passwordvalidation('password', 'msg3')" />
+        <p id="msg3" class="msg"></p>
+
+        <label for="cpassword">Confirm Password</label>
+        <input id="cpassword" name="cpassword" type="password" onfocusout="cpasswordvalidation('password', 'cpassword', 'msg4')" />
+        <p id="msg4" class="msg"></p>
+        
+        <button type="submit" name="action">Submit</button>
+    </form>
+
+    <script type="text/javascript" src="js/validation.js"></script>
+</body>
+
+</html>
