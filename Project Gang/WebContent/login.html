@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	function fn()
+		{
+			var a = document.getElementById("1");
+			var b = document. getElementById("2");
+			
+			if(a.value.trim()=="" )
+				{
+					a.style.border="solid 3px red";
+					document.getElementById("kl").style.visibility="visible";
+					alert("null username");
+					return false;
+				}
+			
+			else if(b.value.trim().length<5)
+				{ 
+					alert("to short");
+					b.style.border="solid 3px red";
+					return false;
+				}
+			else
+					{return true;}
+		}
+	</script>
+</head>
+<body>
+<form onsubmit="return fn()"  method="GET" >
+		
+		name:  <input id="1" name="user" type="text" placeholder="enter your name">
+		<label id="kl" style="color: bisque;visibility: hidden">invalid</label><br><br>
+		password:  <input id="2" name="pass" type="password" placeholder="password"><br><br>
+		<input  type="submit" value="submit"> 
+	</form>
+</body>
+</html>
