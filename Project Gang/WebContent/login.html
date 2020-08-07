@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<script>
-	function fn()
-		{
-			var a = document.getElementById("1");
-			var b = document. getElementById("2");
-			
-			if(a.value.trim()=="" )
-				{
-					a.style.border="solid 3px red";
-					document.getElementById("kl").style.visibility="visible";
-					alert("null username");
-					return false;
-				}
-			
-			else if(b.value.trim().length<5)
-				{ 
-					alert("to short");
-					b.style.border="solid 3px red";
-					return false;
-				}
-			else
-					{return true;}
-		}
-	</script>
+    <title>Register</title>
+    <style>
+        .msg{
+            color: red;
+        }
+    </style>
 </head>
+
 <body>
-<form onsubmit="return fn()"  method="GET" >
-		
-		name:  <input id="1" name="user" type="text" placeholder="enter your name">
-		<label id="kl" style="color: bisque;visibility: hidden">invalid</label><br><br>
-		password:  <input id="2" name="pass" type="password" placeholder="password"><br><br>
-		<input  type="submit" value="submit"> 
-	</form>
+    <h3>Login</h3>
+    <form onsubmit="return loginvalidate('username','msg1','password','msg2')" action="Loginverify" method="post">
+        
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" onfocusout="usernamevalidation('username', 'msg1')" />
+        <p id="msg1" class="msg"></p>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" onfocusout="passwordvalidation('password', 'msg2')" />
+        <p id="msg2" class="msg"></p>
+        
+        <button type="submit" name="action">Login</button>
+    </form>
+    <script type="text/javascript" src="js/validation.js"></script>
 </body>
 </html>

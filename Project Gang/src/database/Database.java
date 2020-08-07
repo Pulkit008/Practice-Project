@@ -32,6 +32,23 @@ public class Database {
 				e.printStackTrace();
 			}
 	}
+	public boolean userlogin(String username,String password)
+	{
+		try {
+			pt=con.prepareStatement("select * from records where username=? and password=?");
+			pt.setString(1, username);
+			pt.setString(2, password);
+			
+			rs=pt.executeQuery();
+			if(rs.next())
+				return true;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 	public boolean insert(User u)
 	{
 		try 
@@ -68,5 +85,16 @@ public class Database {
 			e.printStackTrace();
 		}
 		return false;	
+	}
+	public User Getdatail() {
+		User u=new User();
+		try {
+			u.setName(rs.getString(1));
+			u.setUsername(rs.getString(2));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return u;
 	}
 }
